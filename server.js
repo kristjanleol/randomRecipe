@@ -20,12 +20,12 @@ app.get("/", function(req, res){
             summary = response.data.recipes[0].summary;
             image = response.data.recipes[0].image;
             ingredients = response.data.recipes[0].extendedIngredients;
+
             for(var i=0; i<ingredients.length; i++){
                 name = ingredients[i].name;
                 amount = ingredients[i].measures.metric.amount;
                 unit = ingredients[i].measures.metric.unitShort;
             }
-
             res.render('index.ejs',{
                 title: title,
                 summary: summary,
@@ -42,10 +42,11 @@ app.get("/", function(req, res){
         });
 
 });
-/*
+
 app.listen(port, ()=>{
     console.log("Server is running on port " + port);
-});*/
+});
+/*
 app.listen(process.env.PORT || 3000, function(){
     console.log("Server has started.");
-});
+});*/
